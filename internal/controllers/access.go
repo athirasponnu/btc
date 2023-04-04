@@ -26,6 +26,21 @@ func (access *AccessController) InitRoutes() {
 	access.router.GET("/:version/health", func(ctx *gin.Context) {
 		version.RenderHandler(ctx, access, "HealthHandler")
 	})
+	access.router.GET("/:version/permissions/roles", func(ctx *gin.Context) {
+		version.RenderHandler(ctx, access, "GetRoles")
+	})
+	access.router.GET("/:version/permissions/roles/:id", func(ctx *gin.Context) {
+		version.RenderHandler(ctx, access, "GetRolesById")
+	})
+	access.router.POST("/:version/permissions/roles", func(ctx *gin.Context) {
+		version.RenderHandler(ctx, access, "InsertRoles")
+	})
+	access.router.DELETE("/:version/permissions/roles/:id", func(ctx *gin.Context) {
+		version.RenderHandler(ctx, access, "DeleteRoles")
+	})
+	access.router.PATCH("/:version/permissions/roles/:id", func(ctx *gin.Context) {
+		version.RenderHandler(ctx, access, "UpdateRoles")
+	})
 
 }
 
