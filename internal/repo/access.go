@@ -1,6 +1,7 @@
 package repo
 
 import (
+	"backend-code-base-template/internal/entities"
 	"database/sql"
 )
 
@@ -9,6 +10,11 @@ type AccessRepo struct {
 }
 
 type AccessRepoImply interface {
+	GetRoles(int, int) ([]entities.Roles, error)
+	GetRolesById(int) (entities.Roles, error)
+	DeleteRoles(int) (sql.Result, error)
+	UpdateRoles(entities.Role, int) (sql.Result, error)
+	InsertRoles(entities.Role) (int, error)
 }
 
 // NewUserRepo
